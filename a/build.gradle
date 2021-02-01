@@ -1,0 +1,5 @@
+plugins {
+    id 'com.github.prokod.gradle-crossbuild'
+}
+
+apply from: "$rootDir/gradle/scala.gradle"

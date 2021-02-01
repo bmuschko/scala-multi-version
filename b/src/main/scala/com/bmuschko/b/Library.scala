@@ -4,5 +4,5 @@
 package com.bmuschko.b
 
 class Library {
-  def someLibraryMethod(): Boolean = true
+  def fromProjectB(): Boolean = true
 }
