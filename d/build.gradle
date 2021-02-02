@@ -1,0 +1,23 @@
+plugins {
+    id 'com.github.prokod.gradle-crossbuild'
+    id 'maven-publish'
+}
+
+apply from: "$rootDir/gradle/scala_211.gradle"
+
+dependencies {
+    implementation 'org.apache.commons:commons-lang3:3.11'
+}
+
+publishing {
+    publications {
+        maven211(MavenPublication) {
+            artifact crossBuildScala_211Jar
+        }
+    }
+    repositories {
+        maven {
+            url = "$rootDir/repo"
+        }
+    }
+}
