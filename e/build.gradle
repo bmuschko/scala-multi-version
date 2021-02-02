@@ -1,0 +1,21 @@
+plugins {
+    id 'com.github.prokod.gradle-crossbuild'
+    id 'maven-publish'
+}
+
+apply from: "$rootDir/gradle/scala_211.gradle"
+
+configurations {
+    crossBuildScala_211TestClasspath.extendsFrom(testImplementation, crossBuildScala_211RuntimeClasspath)
+}
+
+task crossBuildScala_211Test(type: Test) {
+    group = 'verification'
+    testClassesDirs = sourceSets.crossBuildScala_211.output.classesDirs
+    classpath = configurations.crossBuildScala_211TestClasspath
+
+    reports {
+        html.destination = project.file("$html.destination/crossBuildScala_211")
+        junitXml.destination = project.file("$junitXml.destination/crossBuildScala_211")
+    }
+}
