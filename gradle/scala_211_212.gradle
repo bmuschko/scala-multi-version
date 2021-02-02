@@ -1,7 +1,9 @@
+apply from: "$rootDir/gradle/scala-common.gradle"
+
 crossBuild {
     builds {
         scala {
-            scalaVersions = ['2.11.12', '2.12.12']
+            scalaVersions = ['2.11', '2.12']
         }
     }
 }
