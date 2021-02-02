@@ -13,3 +13,4 @@ Demonstrates the use of multiple, parallel Scala versions in a multi-project Gra
 
 * [Defining a project dependency for a specific Scala version](https://github.com/prokod/gradle-crossbuild-scala/issues/101)
 * [Support for executing tests with a specific Scala version](https://github.com/prokod/gradle-crossbuild-scala/issues/102)
+* [Publishing functionality doesn't seem to declare dependencies in generated POM](https://github.com/prokod/gradle-crossbuild-scala/issues/103)
