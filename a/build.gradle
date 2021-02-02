@@ -2,7 +2,7 @@ plugins {
     id 'com.github.prokod.gradle-crossbuild'
 }
 
-apply from: "$rootDir/gradle/scala.gradle"
+apply from: "$rootDir/gradle/scala_211_212.gradle"
 
 // Declare the variants as "outgoing" artifacts
 configurations {

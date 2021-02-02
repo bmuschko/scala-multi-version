@@ -2,10 +2,9 @@ plugins {
     id 'com.github.prokod.gradle-crossbuild'
 }
 
-apply from: "$rootDir/gradle/scala.gradle"
+apply from: "$rootDir/gradle/scala_211.gradle"
 
 dependencies {
     crossBuildScala_211Implementation project(path: ':a', configuration: 'consumable211Jar')
-    crossBuildScala_212Implementation project(path: ':a', configuration: 'consumable212Jar')
-    implementation project(':a')
+    implementation project(path: ':a', configuration: 'consumable211Jar')
 }
