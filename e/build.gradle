@@ -3,20 +3,37 @@ plugins {
     id 'com.github.prokod.gradle-crossbuild'
 }
 
-apply from: "$rootDir/gradle/scala_211.gradle"
+apply from: "$rootDir/gradle/scala_211_212.gradle"
 
 // This should all be handled in the plugin as requested in https://github.com/prokod/gradle-crossbuild-scala/issues/102.
 configurations {
-    crossBuildScala_211TestClasspath.extendsFrom(testImplementation, crossBuildScala_211RuntimeClasspath)
+    crossBuildScala_211TestImplementation
+    crossBuildScala_211TestRuntimeClasspath.extendsFrom(crossBuildScala_211TestImplementation, crossBuildScala_211RuntimeClasspath)
+
+    crossBuildScala_212TestImplementation
+    crossBuildScala_212TestRuntimeClasspath.extendsFrom(crossBuildScala_212TestImplementation, crossBuildScala_212RuntimeClasspath)
+}
+
+dependencies {
+    crossBuildScala_211TestImplementation 'junit:junit:4.12'
+    crossBuildScala_211TestImplementation 'org.scalatest:scalatest_2.11:3.1.2'
+    crossBuildScala_211TestImplementation 'org.scalatestplus:junit-4-12_2.11:3.1.2.0'
+
+    crossBuildScala_212TestImplementation 'junit:junit:4.12'
+    crossBuildScala_212TestImplementation 'org.scalatest:scalatest_2.12:3.1.2'
+    crossBuildScala_212TestImplementation 'org.scalatestplus:junit-4-12_2.12:3.1.2.0'
 }
 
 task crossBuildScala_211Test(type: Test) {
     group = 'verification'
+    description = 'Executes tests for the classes that have been compiled with Scala 2.11.'
     testClassesDirs = sourceSets.crossBuildScala_211.output.classesDirs
-    classpath = configurations.crossBuildScala_211TestClasspath
+    classpath = configurations.crossBuildScala_211TestRuntimeClasspath
+}
 
-    reports {
-        html.destination = project.file("$html.destination/crossBuildScala_211")
-        junitXml.destination = project.file("$junitXml.destination/crossBuildScala_211")
-    }
+task crossBuildScala_212Test(type: Test) {
+    group = 'verification'
+    description = 'Executes tests for the classes that have been compiled with Scala 2.12.'
+    testClassesDirs = sourceSets.crossBuildScala_212.output.classesDirs
+    classpath = configurations.crossBuildScala_212TestRuntimeClasspath
 }
