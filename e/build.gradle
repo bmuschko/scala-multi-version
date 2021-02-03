@@ -1,6 +1,5 @@
 plugins {
     id 'com.github.prokod.gradle-crossbuild'
-    id 'maven-publish'
 }
 
 apply from: "$rootDir/gradle/scala_211.gradle"
