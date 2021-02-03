@@ -4,6 +4,7 @@ plugins {
 
 apply from: "$rootDir/gradle/scala_211.gradle"
 
+// This should all be handled in the plugin as requested in https://github.com/prokod/gradle-crossbuild-scala/issues/102.
 configurations {
     crossBuildScala_211TestClasspath.extendsFrom(testImplementation, crossBuildScala_211RuntimeClasspath)
 }

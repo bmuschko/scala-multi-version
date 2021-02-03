@@ -8,6 +8,8 @@ Demonstrates the use of multiple, parallel Scala versions in a multi-project Gra
 * Project `b`: Only builds with Scala 2.11 and depends on outgoing 2.11-compatible artifact of project `a`.
 * Project `c`: Builds with Scala 2.11 and 2.12 and depends on outgoing 2.11-compatible or 2.12-compatible artifact of project `a`.
 * Project `d`: Builds with Scala 2.11 and publishes its artifact to a binary repository. The generated POM declares transitive dependencies.
+* Project `e`: Builds with Scala 2.11 and defines a `Test` task that uses the Scala 2.11-compiled classes + test runtime dependencies to execute the tests.
+
 
 ## Open Issues
 
