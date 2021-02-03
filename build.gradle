@@ -9,6 +9,6 @@ allprojects {
     group = 'com.bmuschko'
 
     repositories {
-        jcenter()
+        mavenCentral()
     }
 }
