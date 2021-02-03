@@ -32,7 +32,7 @@ $ ./gradlew :a:crossBuildScala_211Jar :a:crossBuildScala_212Jar --console=verbos
 At this time, the plugin doesn't support similar functionality for executing tests. Project `e` introduces custom code to execute Scala version-specific `Test` tasks. Each `Test` task resolves the classes produces for a specific Scala version and the dedicated dependencies. The tasks are called `crossBuildScala_211Test` for Scala 2.11 and `crossBuildScala_212Test` for Scala 2.12.
 
 ```
-$ ./gradlew crossBuildScala_211Test crossBuildScala_212Test --console=verbose
+$ ./gradlew :e:crossBuildScala_211Test :e:crossBuildScala_212Test --console=verbose
 > Task :e:compileCrossBuildScala_211Java NO-SOURCE
 > Task :e:compileCrossBuildScala_211Scala
 > Task :e:processCrossBuildScala_211Resources NO-SOURCE
