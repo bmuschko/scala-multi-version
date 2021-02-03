@@ -1,6 +1,6 @@
 # Scala Multi-Version Project
 
-Demonstrates the use of multiple, parallel Scala versions in a multi-project Gradle build with the help of the plugin [prokod/gradle-crossbuild-scala](https://github.com/prokod/gradle-crossbuild-scala).
+Demonstrates the use of different Scala versions in a multi-project Gradle build to compile, package, and execute the tests with the help of the plugin [prokod/gradle-crossbuild-scala](https://github.com/prokod/gradle-crossbuild-scala).
 
 ## Use Cases
 
