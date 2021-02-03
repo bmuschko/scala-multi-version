@@ -52,3 +52,4 @@ Executing the standard tasks like `build` will simply compile the code, generate
 * [Defining a project dependency for a specific Scala version](https://github.com/prokod/gradle-crossbuild-scala/issues/101)
 * [Support for executing tests with a specific Scala version](https://github.com/prokod/gradle-crossbuild-scala/issues/102)
 * [Publishing functionality doesn't seem to declare dependencies in generated POM](https://github.com/prokod/gradle-crossbuild-scala/issues/103)
+* [Current maintenance and development effort of plugin](https://github.com/prokod/gradle-crossbuild-scala/issues/104)
