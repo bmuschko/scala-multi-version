@@ -19,5 +19,5 @@ configurations {
 
 artifacts {
     consumable211Jar(crossBuildScala_211Jar)
-    consumable212Jar(crossBuildScala_211Jar)
+    consumable212Jar(crossBuildScala_212Jar)
 }
