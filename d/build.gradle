@@ -6,31 +6,15 @@ plugins {
 apply from: "$rootDir/gradle/scala_211.gradle"
 
 dependencies {
-    crossBuildScala_211Implementation project(path: ':a', configuration: 'consumable211Jar')
-    implementation project(path: ':a', configuration: 'consumable211Jar')
+    implementation project(':a')
     implementation 'org.apache.commons:commons-lang3:3.11'
 }
 
 publishing {
     publications {
-        maven211(MavenPublication) {
+        crossBuildScala_211(MavenPublication) {
             artifact crossBuildScala_211Jar
 
-            // Workaround for https://github.com/prokod/gradle-crossbuild-scala/issues/103. This should not be required.
-            pom.withXml { xml ->
-                def dependenciesNode = xml.asNode().dependencies?.getAt(0)
-                if (dependenciesNode == null) {
-                    dependenciesNode = xml.asNode().appendNode('dependencies')
-                }
-
-                project.configurations.crossBuildScala_211RuntimeClasspath.allDependencies.each { dep ->
-                    def dependencyNode = dependenciesNode.appendNode('dependency')
-                    dependencyNode.appendNode('groupId', dep.group)
-                    dependencyNode.appendNode('artifactId', dep.name)
-                    dependencyNode.appendNode('version', dep.version)
-                    dependencyNode.appendNode('scope', 'runtime')
-                }
-            }
         }
     }
     repositories {

@@ -3,20 +3,3 @@ plugins {
 }
 
 apply from: "$rootDir/gradle/scala_211_212.gradle"
-
-// Declare the variants as "outgoing" artifacts
-configurations {
-    consumable211Jar {
-        canBeConsumed = true
-        canBeResolved = false
-    }
-    consumable212Jar {
-        canBeConsumed = true
-        canBeResolved = false
-    }
-}
-
-artifacts {
-    consumable211Jar(crossBuildScala_211Jar)
-    consumable212Jar(crossBuildScala_212Jar)
-}
